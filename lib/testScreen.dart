@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_point_tab_bar/pointTabIndicator.dart';
+import './pages/header/myDrawer.dart';
 
 class TestScreen extends StatefulWidget {
   @override
@@ -9,7 +10,7 @@ class TestScreen extends StatefulWidget {
 
 class _TestScreenState extends State<TestScreen>
     with SingleTickerProviderStateMixin {
-  final tabList = ['前端', '后端'];
+  final tabList = ['全部', '前端', '服务端', '构建工具', '数据库', '后端', '系统架构'];
   TabController _tabController;
 
   @override
@@ -38,6 +39,7 @@ class _TestScreenState extends State<TestScreen>
           }).toList(),
         ),
       ),
+      drawer: new MyDrawer(), //menu
       body: TabBarView(
         controller: _tabController,
         children: tabList.map((item) {
