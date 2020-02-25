@@ -9,7 +9,6 @@
             "request": "launch",
             "program": "bin/main.dart"
         },
-
         {
             "name": "Flutter",
             "request": "launch",

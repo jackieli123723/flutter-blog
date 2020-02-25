@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import '../person/person_article.dart';
+import '../person/person_info.dart';
+import '../person/person_product.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({
@@ -23,7 +26,7 @@ class MyDrawer extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: ClipOval(
                       child: Image.asset(
-                        "https://picsum.photos/250?image=9",
+                        'assets/images/my.png', //可以把参考webpack ailis 来设置一个全局的路径
                         width: 80,
                       ),
                     ),
@@ -39,17 +42,35 @@ class MyDrawer extends StatelessWidget {
               child: ListView(
                 children: <Widget>[
                   ListTile(
-                    leading: const Icon(Icons.info),
-                    title: const Text('个人信息'),
-                  ),
+                      leading: const Icon(Icons.info),
+                      title: const Text('个人信息'),
+                      onTap: () {
+                      
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return PersonInfo();
+                        }));
+                      }),
                   ListTile(
-                    leading: const Icon(Icons.card_giftcard),
-                    title: const Text('开源作品'),
-                  ),
+                      leading: const Icon(Icons.card_giftcard),
+                      title: const Text('开源作品'),
+                      onTap: () {
+                        //导航到新路由
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return PersonProduct();
+                        }));
+                      }),
                   ListTile(
-                    leading: const Icon(Icons.add),
-                    title: const Text('添加文章'),
-                  ),
+                      leading: const Icon(Icons.add),
+                      title: const Text('添加文章'),
+                      onTap: () {
+                        //导航到新路由
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return PersonArticle();
+                        }));
+                      }),
                 ],
               ),
             ),
