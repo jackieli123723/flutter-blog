@@ -1,36 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+
+String vueUrl = 'http://iph.href.lu/50x50?text=v&fg=fff&bg=000';
+String nodeUrl = 'http://iph.href.lu/50x50?text=n&fg=fff&bg=333';
 
 class PersonProduct extends StatelessWidget {
-  String horseUrl = 'https://i.stack.imgur.com/Dw6f7.png';
-  String cowUrl = 'https://i.stack.imgur.com/XPOr3.png';
-  String camelUrl = 'https://i.stack.imgur.com/YN0m7.png';
-  String sheepUrl = 'https://i.stack.imgur.com/wKzo8.png';
-  String goatUrl = 'https://i.stack.imgur.com/Qt4JP.png';
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: Text("开源作品"),
         ),
-        // body: Center(
-        //   child: Text("jackieli--开源作品"),
-        // ),
         body: new Container(
             child: new ListView(
           scrollDirection: Axis.vertical,
           children: <Widget>[
             ListTile(
               leading: CircleAvatar(
-                backgroundImage: NetworkImage(horseUrl),
+                backgroundImage: NetworkImage(vueUrl),
               ),
               title: Text('vue-table-pagination'),
               subtitle: Text('vue2封装的table联动组件'),
               trailing: Icon(Icons.keyboard_arrow_right),
+              onTap: () {},
+            ),
+            ListTile(
+              leading: CircleAvatar(
+                backgroundImage: NetworkImage(nodeUrl),
+              ),
+              title: Text('node-cli-weather'),
+              subtitle: Text('一个node天气预报cli工具 '),
+              trailing: Icon(Icons.keyboard_arrow_right),
               onTap: () {
-                print('horse');
+                WebView(
+                    initialUrl: "http://baidu.com",
+                    //JS执行模式 是否允许JS执行
+                    javascriptMode: JavascriptMode.unrestricted);
               },
-              selected: false,
             ),
           ],
         )));

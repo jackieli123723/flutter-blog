@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../person/person_article.dart';
-import '../person/person_info.dart';
 import '../person/person_product.dart';
+import '../person/person_info.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({
@@ -45,7 +45,6 @@ class MyDrawer extends StatelessWidget {
                       leading: const Icon(Icons.info),
                       title: const Text('个人信息'),
                       onTap: () {
-                      
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
                           return PersonInfo();
