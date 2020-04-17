@@ -1,15 +1,14 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
+import './person_product_info.dart';
 
-class PersonProduct extends StatelessWidget {
+class PersonProduct extends StatefulWidget {
+  @override
+  _PersonProductState createState() => _PersonProductState();
+}
+
+class _PersonProductState extends State<PersonProduct> {
   final String vueUrl = 'http://iph.href.lu/50x50?text=v&fg=fff&bg=000';
   final String nodeUrl = 'http://iph.href.lu/50x50?text=n&fg=fff&bg=333';
-  final String _url = "http://baidu.com";
-
-  final Completer<WebViewController> _controller =
-      Completer<WebViewController>();
 
   @override
   Widget build(BuildContext context) {
@@ -28,29 +27,32 @@ class PersonProduct extends StatelessWidget {
               title: Text('vue-table-pagination'),
               subtitle: Text('vue2封装的table联动组件'),
               trailing: Icon(Icons.keyboard_arrow_right),
-              onTap: () {},
+              onTap: () {
+                //跳转到webview
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return PersonProductInfo(
+                    url:
+                        "https://github.com/jackieli123723/vue-table-pagination",
+                    title: "vue2封装的table联动组件",
+                  );
+                }));
+              },
             ),
             ListTile(
               leading: CircleAvatar(
                 backgroundImage: NetworkImage(nodeUrl),
               ),
               title: Text('node-cli-weather'),
-              subtitle: Text('一个node天气预报cli工具 '),
+              subtitle: Text('node天气预报cli工具 '),
               trailing: Icon(Icons.keyboard_arrow_right),
               onTap: () {
-                print('test');
-                WebView(
-                    // initialUrl: _url,
-                    // //JS执行模式 是否允许JS执行
-                    // javascriptMode: JavascriptMode.unrestricted,
-                    // onWebViewCreated: (WebViewController webViewController) {
-                    //   _controller.complete(webViewController);
-                    // },
-                    // navigationDelegate: (NavigationRequest request) {
-                    //   // 判断URL
-                    //   return NavigationDecision.navigate;
-                    // },
-                    );
+                //跳转到webview
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return PersonProductInfo(
+                    url: "https://github.com/jackieli123723/ci",
+                    title: "天气预报cli工具",
+                  );
+                }));
               },
             ),
           ],

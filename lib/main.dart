@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      debugShowCheckedModeBanner: false, //去掉右上角debug
       home: TestScreen(),
     );
   }
