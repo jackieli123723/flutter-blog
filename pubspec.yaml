@@ -27,6 +27,7 @@ dependencies:
   flutter_webview_plugin: ^0.3.0+2.2
   webview_flutter: ^0.3.13
   fluttertoast: ^3.0.4
+  dio: ^3.0.9
 
 dev_dependencies:
   flutter_test:
