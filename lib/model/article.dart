@@ -24,7 +24,7 @@ class Article {
 
 
 final List<Article> articles = [
-  Post(
+  Article(
  	backgroundImg: "http://static.lilidong.cn/blog/upload/bg200-1562933974213.png",
   commentCount: 12,
   content: "在构建一定大小的SPA（单页面应用程序）时，会发生与几乎100％API服务器的通信。在这种情况dsfdsf",
@@ -35,7 +35,7 @@ final List<Article> articles = [
   title: "Vue CLI创建的项目中使用axios-mock-adapter实现单元测试",
   type: 1,
   ),
-    Post(
+  Article(
  	backgroundImg: "http://static.lilidong.cn/blog/upload/bg200-1562933974213.png",
   commentCount: 12,
   content: "<p>在构建一定大小的SPA（单页面应用程序）时，会发生与几乎100％API服务器的通信。在这种情况</p>sdfsdfdsf",
@@ -47,7 +47,7 @@ final List<Article> articles = [
   type: 1,
   )
 
-]
+];
 
 
 

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_point_tab_bar/pointTabIndicator.dart';
 import './pages/header/myDrawer.dart';
+import 'dart:math' as math;
 
 class TestScreen extends StatefulWidget {
   @override
@@ -80,6 +81,53 @@ class _TestScreenState extends State<TestScreen>
   Future getMoreData() async {}
 
   Widget _articleList(BuildContext context, int selectedIndex) {
+    var row = Row(
+      children: <Widget>[
+        DecoratedBox(
+            decoration: BoxDecoration(color: Colors.white),
+            child: Container(
+              margin: EdgeInsets.only(left: 4, right: 4),
+              child: Transform(
+                transform: Matrix4.skewX(-0.2),
+                origin: Offset(0, 0),
+                child: Text('系统架构',
+                    style: TextStyle(
+                        color: Color.fromRGBO(255, 255, 255, 1),
+                        backgroundColor: Color.fromARGB(200, 131, 207, 1),
+                        fontSize: 10.0)),
+              ),
+            )),
+        Icon(
+          Icons.comment,
+          color: Color(0xFF959595).withOpacity(1),
+          size: 18.0,
+        ),
+        Text('100',
+            style: TextStyle(
+                color: Color.fromRGBO(153, 153, 153, 1), fontSize: 12.0)),
+        Icon(
+          Icons.grade,
+          color: Color(0xFF959595).withOpacity(1),
+          size: 18.0,
+        ),
+        Text('100',
+            style: TextStyle(
+                color: Color.fromRGBO(153, 153, 153, 1), fontSize: 12.0)),
+        Icon(
+          Icons.visibility,
+          color: Color(0xFF959595).withOpacity(1),
+          size: 18.0,
+        ),
+        Text('100',
+            style: TextStyle(
+                color: Color.fromRGBO(153, 153, 153, 1), fontSize: 12.0)),
+        Text(
+          '2020-04-30',
+          style: TextStyle(
+              color: Color.fromRGBO(153, 153, 153, 1), fontSize: 12.0),
+        ),
+      ],
+    );
     return GestureDetector(
         onTap: () {
           print('跳转文章到详情传递id');
@@ -87,7 +135,7 @@ class _TestScreenState extends State<TestScreen>
         child: Container(
           margin: EdgeInsets.only(bottom: 10, left: 6, right: 6),
           padding: EdgeInsets.all(0), //容器外填充
-          height: 230.0,
+          height: 270.0,
           color: Colors.white,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -95,7 +143,10 @@ class _TestScreenState extends State<TestScreen>
               Container(
                 height: 150,
                 child: Image(
-                  image: AssetImage('assets/images/wechat.jpg'),
+                  //本地静态图片
+                  // image: AssetImage('assets/images/wechat.jpg'),
+                  image: NetworkImage(
+                      'https://eux-public.bj.bcebos.com/2018/07/26/npm%20aduit-0.jpg'),
                   height: 150,
                   width: double.infinity,
                   fit: BoxFit.fitWidth,
@@ -104,59 +155,30 @@ class _TestScreenState extends State<TestScreen>
               SizedBox(height: 8.0),
               Container(
                 child: Text('微信小程序架构原理',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                        color: Color.fromRGBO(85, 85, 85, 1), fontSize: 14.0)),
+                        fontWeight: FontWeight.w600,
+                        color: Color.fromRGBO(85, 85, 85, 1),
+                        fontSize: 14.0)),
               ),
-              SizedBox(height: 4.0),
+              SizedBox(height: 8.0),
+              Container(
+                child: Text(
+                    '333333333333333微信小程序架构原理微信小程序架构原理微信小程序架构原理333333333333333微信小程序架构原理微信小程序架构原理微信小程序架构原理',
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                        color: Color.fromRGBO(140, 140, 140, 0.9),
+                        fontSize: 12.0)),
+              ),
+              SizedBox(height: 6.0),
               Container(
                 // padding: EdgeInsets.only(left: 20),
-                child: Row(
-                  children: <Widget>[
-                    Text('by.jackieli',
-                        style: TextStyle(
-                            color: Color.fromRGBO(153, 153, 153, 1),
-                            fontSize: 12.0)),
-                    Text(' / ',
-                        style: TextStyle(
-                            color: Color.fromRGBO(153, 153, 153, 1),
-                            fontSize: 12.0)),
-                    Text('2020-04-30',
-                        style: TextStyle(
-                            color: Color.fromRGBO(153, 153, 153, 1),
-                            fontSize: 12.0)),
-                    Text('前端',
-                        style: TextStyle(
-                            color: Color.fromRGBO(153, 153, 153, 1),
-                            fontSize: 12.0)),
-                    Text(' / ',
-                        style: TextStyle(
-                            color: Color.fromRGBO(153, 153, 153, 1),
-                            fontSize: 12.0)),
-                    Text('2020-04-30',
-                        style: TextStyle(
-                            color: Color.fromRGBO(153, 153, 153, 1),
-                            fontSize: 12.0)),
-                    Text('前端',
-                        style: TextStyle(
-                            color: Color.fromRGBO(153, 153, 153, 1),
-                            fontSize: 12.0))
-                  ],
-                ),
+                child: row,
               )
-              // ConstrainedBox(
-              //   child: Image.asset(
-              //     'assets/images/wechat.jpg',
-              //     height: 150,
-              //     fit: BoxFit.cover,
-              //   ),
-              //   constraints: new BoxConstraints.expand(),
-              // )
             ],
           ),
-          // child: Text(
-          //   //卡片文字
-          //   "文章列表", style: TextStyle(color: Colors.red, fontSize: 20.0),
-          // ),
         ));
   }
 
@@ -173,14 +195,32 @@ class _TestScreenState extends State<TestScreen>
       appBar: AppBar(
         title: Text('西门互联'),
         centerTitle: true,
+        elevation: 0, // 隐藏阴影
+        //后面放置图标
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              print('search');
+            },
+          ),
+        ],
         bottom: TabBar(
           controller: _tabController,
           isScrollable: true, //横向滚动
-          indicator: PointTabIndicator(
-            position: PointTabIndicatorPosition.bottom,
-            color: Colors.white,
-            insets: EdgeInsets.only(bottom: 6),
+          unselectedLabelStyle: TextStyle(
+            color: Color(0xff333333),
+            fontSize: 12.0,
           ),
+          labelStyle: TextStyle(color: Color(0xff333333), fontSize: 14.0),
+          //有点的
+          // indicator: PointTabIndicator(
+          //   position: PointTabIndicatorPosition.bottom,
+          //   color: Colors.white,
+          //   insets: EdgeInsets.only(bottom: 6),
+          // ),
+          //去掉样式
+          indicator: const BoxDecoration(),
           tabs: tabList.map((item) {
             return Tab(
               text: item,
