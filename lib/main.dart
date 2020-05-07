@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import './testScreen.dart';
+import './home.dart';
+import './pages/comment/comment.dart';
 
 void main() => runApp(MyApp());
 
@@ -17,7 +18,12 @@ class MyApp extends StatelessWidget {
         accentColor: Colors.black,
       ),
       debugShowCheckedModeBanner: false, //去掉右上角debug
-      home: TestScreen(),
+      // home: Home(),
+      initialRoute: "/",
+      routes: {
+        "/": (context) => Home(),
+        "/comment": (context) => Comment(),
+      },
     );
   }
 }
