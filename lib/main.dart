@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './home.dart';
 import './pages/comment/comment.dart';
+import './pages/person/person_info.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => Home(),
         "/comment": (context) => Comment(),
+        "/about": (context) => PersonInfo(),
       },
     );
   }

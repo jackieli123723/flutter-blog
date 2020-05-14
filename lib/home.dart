@@ -4,6 +4,8 @@ import './pages/header/myDrawer.dart';
 import './pages/search/search.dart';
 import './pages/article/article_list.dart';
 
+import './commons/bottom_navigation_bar.dart';
+
 import './api/httpUtil.dart';
 import './api/api.dart';
 import 'dart:convert';
@@ -125,7 +127,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           }).toList(),
         ),
       ),
-      drawer: new MyDrawer(), //menu
+      drawer: new MyDrawer(), //menu 侧边栏
+      bottomNavigationBar: BottomNavigator(), //footer 导航栏
       resizeToAvoidBottomPadding: false, //输入框抵住键盘
       body: TabBarView(
         controller: _tabController,
@@ -133,7 +136,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
           // return Container(child: Text(selectedIndex.toString()));
           return Scrollbar(
               child: ListView.builder(
-                  itemCount: 10,
+                  itemCount: 3,
                   itemBuilder: (BuildContext context, int index) {
                     return ArticleList();
                   }));

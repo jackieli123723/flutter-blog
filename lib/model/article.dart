@@ -9,6 +9,7 @@ class Article {
   final String title;
   final int type;
   
+  //z这里不加const
   Article({
    this.backgroundImg,
    this.commentCount,

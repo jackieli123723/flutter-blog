@@ -8,9 +8,25 @@ class PersonInfo extends StatelessWidget {
         title: Text("个人信息"),
         centerTitle: true,
       ),
-      body: Center(
-        child: Text("jackieli--web前端开发工程师"),
-      ),
+      backgroundColor: const Color(0xFFE9E9E9),
+      body: Padding(
+          padding: EdgeInsets.all(0),
+          child: Column(
+            children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Image.asset("assets/images/my.png"),
+                  Image.asset("assets/images/my.png"),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Text("jackeili,"),
+              Text("web前端开发工程师"),
+            ],
+          )),
     );
   }
 }

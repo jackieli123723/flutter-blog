@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import '../pages/person/person_info.dart';
+
+//  Navigator.pushNamed(context, '/about');
+//   Navigator.pushNamed(context, '/search');
 
 class BottomNavigator extends StatelessWidget {
   @override
@@ -12,34 +16,41 @@ class BottomNavigator extends StatelessWidget {
             icon: InkWell(
               borderRadius: BorderRadius.circular(10),
               splashColor: Colors.blue,
-              onTap: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => (RadioVidaEterna())),
-                // );
-              },
+              onTap: () {},
               child: Icon(
                 Icons.home,
               ),
             ),
-            title: Text('Home', style: TextStyle())),
+            title: Text('首页', style: TextStyle())),
         BottomNavigationBarItem(
             icon: InkWell(
               child: Icon(
-                Icons.search,
+                Icons.remove_from_queue,
               ),
             ),
-            title: Text("Eventos", style: TextStyle())),
+            title: Text("简历", style: TextStyle())),
         BottomNavigationBarItem(
-            icon: Icon(
-              Icons.bookmark_border,
+            icon: Icon(Icons.bookmark_border), title: Text("作品")),
+        BottomNavigationBarItem(
+            icon: InkWell(
+              child: Icon(
+                Icons.person_outline,
+              ),
+              onTap: () {
+                //way1
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return PersonInfo();
+                }));
+
+                //way2
+                // Navigator.pushNamed(context, '/about');
+              },
             ),
             title: Text(
-              "Mapa",
+              "关于",
             )),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline), title: Text("Contacto"))
       ],
     );
   }
 }
+//https://material.io/tools/icons/
