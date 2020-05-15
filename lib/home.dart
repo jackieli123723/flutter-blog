@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import './pages/header/myDrawer.dart';
 import './pages/search/search.dart';
 import './pages/article/article_list.dart';
-
 import './commons/bottom_navigation_bar.dart';
 
 import './api/httpUtil.dart';
@@ -128,7 +127,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
         ),
       ),
       drawer: new MyDrawer(), //menu 侧边栏
-      bottomNavigationBar: BottomNavigator(), //footer 导航栏
+      bottomNavigationBar: BottomNavigatorTab(), //footer 导航栏
       resizeToAvoidBottomPadding: false, //输入框抵住键盘
       body: TabBarView(
         controller: _tabController,
