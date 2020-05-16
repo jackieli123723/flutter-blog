@@ -1,13 +1,16 @@
+// import 'dart:html';
+
 import 'package:flutter/material.dart';
 import '../pages/person/person_info.dart';
 import '../home.dart';
 import '../pages/person/person_product.dart';
 import '../pages/search/search.dart';
 
+
 class BottomNavigatorTab extends StatefulWidget {
   BottomNavigatorTab({
     Key key,
-    this.tabIndex,
+    this.tabIndex=0,
   }) : super(key: key);
   final int tabIndex;
   @override
@@ -36,23 +39,36 @@ class _BottomNavigatorState extends State<BottomNavigatorTab> {
           icon: InkWell(
             borderRadius: BorderRadius.circular(10),
             splashColor: Colors.blue,
-            onTap: () {
-              Navigator.pushNamed(context, '/');
-            },
             child: Icon(
               Icons.home,
             ),
+            onTap: () {
+              Navigator.pushNamed(context, '/');
+            },
           ),
-          title: Text('首页', style: TextStyle())),
+          title: Text('首页')),
       BottomNavigationBarItem(
           icon: InkWell(
             child: Icon(
               Icons.remove_from_queue,
             ),
+            onTap: (){
+             Navigator.pushNamed(context, '/work');
+            },
           ),
-          title: Text("简历", style: TextStyle())),
+          title: Text("作品",)),
       BottomNavigationBarItem(
-          icon: Icon(Icons.bookmark_border), title: Text("作品")),
+        icon:InkWell(
+          child:Icon(
+            Icons.bookmark_border,
+          ),
+          onTap: (){
+            Navigator.pushNamed(context, '/product');
+          }
+           
+        ),
+        title: Text('开源'),
+      ),
       BottomNavigationBarItem(
           icon: InkWell(
             child: Icon(
@@ -60,12 +76,12 @@ class _BottomNavigatorState extends State<BottomNavigatorTab> {
             ),
             onTap: () {
               //way1
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return PersonInfo();
-              }));
+              // Navigator.push(context, MaterialPageRoute(builder: (context) {
+              //   return PersonInfo();
+              // }));
 
               //way2
-              // Navigator.pushNamed(context, '/about');
+              Navigator.pushNamed(context, '/about');
             },
           ),
           title: Text(
@@ -77,7 +93,7 @@ class _BottomNavigatorState extends State<BottomNavigatorTab> {
       backgroundColor: Color(0xFFFAFAFA),
       fixedColor: Colors.blue,
       type: BottomNavigationBarType.fixed,
-      currentIndex: _currentIndex, //tabindex如何纯涤进来
+      currentIndex: widget.tabIndex, //tabindex如何纯涤进来
       onTap: _onItemTapped,
     );
   }

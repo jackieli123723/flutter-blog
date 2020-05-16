@@ -81,7 +81,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     _tabController = TabController(vsync: this, length: tabList.length);
     super.initState();
     _tabController.addListener(() => _onTabChanged());
-    fetchData();
+   // fetchData();
   }
 
   @override

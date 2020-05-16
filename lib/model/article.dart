@@ -20,8 +20,9 @@ class Article {
    this.stars,
    this.title,
    this.type
-  })
+  });
 }
+
 
 
 final List<Article> articles = [

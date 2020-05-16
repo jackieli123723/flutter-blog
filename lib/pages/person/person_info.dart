@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../commons/bottom_navigation_bar.dart';
-
+ 
 class PersonInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -10,7 +10,7 @@ class PersonInfo extends StatelessWidget {
       //   centerTitle: true,
       // ),
       backgroundColor: const Color(0xFFE9E9E9),
-      bottomNavigationBar: BottomNavigatorTab(), //footer 导航栏
+      bottomNavigationBar: BottomNavigatorTab(tabIndex:3), //footer 导航栏
       body: Padding(
           padding: EdgeInsets.all(0),
           child: Column(
