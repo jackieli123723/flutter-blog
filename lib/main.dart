@@ -16,7 +16,8 @@ class MyApp extends StatelessWidget {
         // primarySwatch: Colors.blue,
         brightness: Brightness.light,
         // primaryColor: Colors.white,//tabbar 白色
-        primarySwatch: Colors.blue, // or Colors.green or any color darker than white (this is line 66)
+        primarySwatch: Colors
+            .blue, // or Colors.green or any color darker than white (this is line 66)
         accentColor: Colors.black,
       ),
       debugShowCheckedModeBanner: false, //去掉右上角debug
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
       routes: {
         "/": (context) => Home(),
-        '/work':(context) => PersonWork(),
+        '/work': (context) => PersonWork(),
         "/about": (context) => PersonInfo(),
         "/product": (context) => PersonProduct(),
         "/comment": (context) => Comment(),
