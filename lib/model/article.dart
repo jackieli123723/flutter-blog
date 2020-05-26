@@ -9,6 +9,7 @@ class Article {
   final String title;
   final int type;
   
+  //z这里不加const
   Article({
    this.backgroundImg,
    this.commentCount,
@@ -19,8 +20,9 @@ class Article {
    this.stars,
    this.title,
    this.type
-  })
+  });
 }
+
 
 
 final List<Article> articles = [
