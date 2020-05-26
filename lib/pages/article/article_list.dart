@@ -139,7 +139,7 @@ class ArticleList extends StatelessWidget {
                     style: TextStyle(
                         fontWeight: FontWeight.w600,
                         color: Color.fromRGBO(85, 85, 85, 1),
-                        fontSize: 14.0)),
+                        fontSize: 16.0)),
               ),
               SizedBox(height: 8.0),
               Container(
@@ -148,7 +148,7 @@ class ArticleList extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                         color: Color.fromRGBO(140, 140, 140, 0.9),
-                        fontSize: 12.0)),
+                        fontSize: 14.0)),
               ),
               SizedBox(height: 6.0),
               Container(
